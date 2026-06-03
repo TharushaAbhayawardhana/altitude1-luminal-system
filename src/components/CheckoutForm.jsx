@@ -41,16 +41,14 @@ export default function CheckoutForm() {
   }
 
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice
+  const exchangeRate = Number(import.meta.env.VITE_LKR_EXCHANGE_RATE) || 300
+  const lkrPrice = Math.round(price * exchangeRate)
 
   function validate() {
     const errs = {}
     if (!form.firstName.trim()) errs.firstName = 'Required'
-    if (!form.lastName.trim()) errs.lastName = 'Required'
     if (!form.email.trim()) errs.email = 'Required'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Invalid email'
-    if (!form.phone.trim()) errs.phone = 'Required'
-    if (!form.address.trim()) errs.address = 'Required'
-    if (!form.city.trim()) errs.city = 'Required'
     if (createAccount) {
       if (!form.password) errs.password = 'Required'
       else if (form.password.length < 6) errs.password = 'At least 6 characters'
@@ -162,7 +160,7 @@ export default function CheckoutForm() {
 
       const result = await initiatePayHerePayment({
         orderId,
-        amount: price,
+        amount: lkrPrice,
         currency: 'LKR',
         firstName: form.firstName,
         lastName: form.lastName,
@@ -385,9 +383,15 @@ export default function CheckoutForm() {
           <span className="text-white font-bold">${price}/{isYearly ? 'yr' : 'mo'}</span>
         </div>
         <p className="text-text-secondary text-sm">{plan.description}</p>
-        <div className="mt-5 pt-5 border-t border-border flex items-center justify-between">
-          <span className="text-white font-semibold">Total</span>
-          <span className="text-2xl font-bold gradient-text">${price}</span>
+        <div className="mt-5 pt-5 border-t border-border space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-text-secondary text-sm">Plan Price (USD)</span>
+            <span className="text-white font-semibold">${price}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-text-secondary text-sm">Amount Charged (LKR)</span>
+            <span className="text-lg font-bold gradient-text">LKR {lkrPrice.toLocaleString()}</span>
+          </div>
         </div>
       </div>
 
@@ -399,7 +403,7 @@ export default function CheckoutForm() {
         {submitting ? (
           <><Loader2 className="h-5 w-5 animate-spin" /> Processing...</>
         ) : (
-          <><CreditCard className="h-5 w-5" /> Pay ${price} — {plan.name}
+          <><CreditCard className="h-5 w-5" /> Pay LKR {lkrPrice.toLocaleString()} — {plan.name}
           </>
         )}
       </button>
