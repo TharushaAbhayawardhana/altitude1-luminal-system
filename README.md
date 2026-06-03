@@ -6,6 +6,8 @@ A modern full-stack **React + PHP + MySQL** e-commerce & SaaS platform with Fire
 
 ## 📌 Project Overview
 
+See Frontend: https://altitude1-luminal-system.vercel.app/
+
 Luminal Systems is a professional training + real-world simulation project designed to demonstrate full-stack development skills including:
 
 - Modern UI/UX design using React + Tailwind
