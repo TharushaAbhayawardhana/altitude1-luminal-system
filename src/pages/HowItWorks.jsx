@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Search, Route, Cpu, BarChart3 } from 'lucide-react'
 import PageTransition from '../components/PageTransition'
-import StepCard from '../components/StepCard'
 
 const steps = [
   {
@@ -34,23 +33,24 @@ const steps = [
 export default function HowItWorks() {
   return (
     <PageTransition>
-      <section className="pt-28 pb-16">
+      <section className="section-spacing">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Process</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
               How It <span className="gradient-text">Works</span>
             </h1>
-            <p className="text-text-secondary max-w-xl mx-auto">
+            <p className="text-text-secondary max-w-xl mx-auto text-lg">
               From discovery to deployment, our streamlined process ensures you get the best results, fast.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="pb-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary hidden sm:block" />
+            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary hidden sm:block opacity-40" />
             <div className="space-y-0">
               {steps.map((step, i) => {
                 const Icon = step.icon
@@ -64,11 +64,11 @@ export default function HowItWorks() {
                     className="relative flex gap-6 sm:pl-14"
                   >
                     <div className="hidden sm:flex absolute left-0 flex-col items-center">
-                      <div className="h-10 w-10 rounded-full gradient-bg flex items-center justify-center">
+                      <div className="h-12 w-12 rounded-full gradient-bg flex items-center justify-center shadow-lg">
                         <Icon className="h-5 w-5 text-white" />
                       </div>
                     </div>
-                    <div className="glass rounded-2xl p-6 flex-1 mb-6 hover:border-border-hover transition-all">
+                    <div className="glass rounded-2xl p-6 md:p-8 flex-1 mb-6 hover:border-white/15 hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] transition-all duration-500">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="sm:hidden h-8 w-8 rounded-lg gradient-bg flex items-center justify-center">
                           <Icon className="h-4 w-4 text-white" />
@@ -77,7 +77,7 @@ export default function HowItWorks() {
                           Step {step.step}: {step.title}
                         </h3>
                       </div>
-                      <p className="text-text-secondary text-sm ml-0 sm:ml-0">
+                      <p className="text-text-secondary text-sm leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -89,21 +89,22 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="py-16 text-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="section-spacing text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.06),transparent_70%)]" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to get started?</h2>
-            <p className="text-text-secondary mb-8">Take the first step toward transforming your business.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to get started?</h2>
+            <p className="text-text-secondary mb-10 text-lg">Take the first step toward transforming your business.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/pricing"
-                className="gradient-bg text-white px-8 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 glow hover:opacity-90 transition-opacity"
+                className="group gradient-bg text-white px-10 py-4 rounded-xl font-semibold text-base inline-flex items-center justify-center gap-2 glow-lg hover:shadow-[0_0_50px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-105"
               >
-                See Plans <ArrowRight className="h-4 w-4" />
+                See Plans <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/contact"
-                className="glass text-white px-8 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 hover:bg-surface-hover transition-all"
+                className="glass text-white px-10 py-4 rounded-xl font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/15 transition-all duration-300"
               >
                 Contact Us <ArrowRight className="h-4 w-4" />
               </Link>

@@ -10,20 +10,21 @@ export default function Pricing() {
 
   return (
     <PageTransition>
-      <section className="pt-28 pb-16">
+      <section className="section-spacing">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Pricing</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
               Simple <span className="gradient-text">Pricing</span>
             </h1>
-            <p className="text-text-secondary max-w-xl mx-auto">
+            <p className="text-text-secondary max-w-xl mx-auto text-lg">
               Choose the plan that fits your needs. No hidden fees, no surprises.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="pb-20">
+      <section className="pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BillingToggle isYearly={isYearly} onToggle={() => setIsYearly(!isYearly)} />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">

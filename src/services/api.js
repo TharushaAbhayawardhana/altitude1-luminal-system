@@ -32,6 +32,16 @@ export async function sendWelcomeEmail(email, name) {
   return response.data
 }
 
+export async function createUser(data) {
+  const response = await api.post('/users.php', data)
+  return response.data
+}
+
+export async function getUserByFirebaseUid(firebaseUid) {
+  const response = await api.get('/users.php', { params: { firebase_uid: firebaseUid } })
+  return response.data
+}
+
 export async function getPayHereHash(orderId, amount, currency) {
   const response = await api.post('/payhere-hash.php', { order_id: orderId, amount, currency })
   return response.data

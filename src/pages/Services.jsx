@@ -9,13 +9,14 @@ import { servicesList, workflowSteps } from '../utils/servicesData'
 export default function Services() {
   return (
     <PageTransition>
-      <section className="pt-28 pb-16">
+      <section className="section-spacing">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">What We Do</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
               Our <span className="gradient-text">Services</span>
             </h1>
-            <p className="text-text-secondary max-w-2xl mx-auto">
+            <p className="text-text-secondary max-w-2xl mx-auto text-lg">
               Comprehensive SaaS solutions engineered for performance, security, and scale.
               From cloud infrastructure to AI-driven analytics, we have you covered.
             </p>
@@ -23,7 +24,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {servicesList.map((service, i) => (
@@ -33,16 +34,18 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="section-spacing relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.06),transparent_70%)]" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">How We Deliver</h2>
-            <p className="text-text-secondary">Our proven 4-step workflow ensures consistent results.</p>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Process</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">How We Deliver</h2>
+            <p className="text-text-secondary text-lg">Our proven 4-step workflow ensures consistent results.</p>
           </motion.div>
           <div className="max-w-2xl mx-auto">
             {workflowSteps.map((step, i) => (
@@ -59,16 +62,16 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-16 text-center">
+      <section className="section-spacing text-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to get started?</h2>
-            <p className="text-text-secondary mb-8">Let us build something amazing together.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to get started?</h2>
+            <p className="text-text-secondary mb-10 text-lg">Let us build something amazing together.</p>
             <Link
               to="/pricing"
-              className="inline-flex gradient-bg text-white px-8 py-3.5 rounded-xl font-semibold text-sm gap-2 glow hover:opacity-90 transition-opacity"
+              className="group inline-flex gradient-bg text-white px-10 py-4 rounded-xl font-semibold text-base gap-2 glow-lg hover:shadow-[0_0_50px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-105"
             >
-              View Pricing <ArrowRight className="h-4 w-4" />
+              View Pricing <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useLocation, Navigate, Link } from 'react-router-dom'
-import { ArrowLeft, CreditCard, Sparkles } from 'lucide-react'
+import { ArrowLeft, CreditCard } from 'lucide-react'
 import PageTransition from '../components/PageTransition'
 import CheckoutForm from '../components/CheckoutForm'
 
@@ -25,12 +25,14 @@ export default function Checkout() {
           >
             <Link
               to="/pricing"
-              className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-white transition-colors mb-4"
+              className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-white transition-colors mb-4 group"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to Pricing
+              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Pricing
             </Link>
             <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 flex items-center gap-3">
-              <CreditCard className="h-8 w-8 text-accent" />
+              <div className="h-9 w-9 rounded-xl gradient-bg flex items-center justify-center">
+                <CreditCard className="h-5 w-5 text-white" />
+              </div>
               Checkout
             </h1>
             <p className="text-text-secondary">Complete your purchase of the {plan.name} plan.</p>

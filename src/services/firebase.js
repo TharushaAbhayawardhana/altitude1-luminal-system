@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'demo-api-key',
@@ -12,6 +12,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
+
+const googleProvider = new GoogleAuthProvider()
+
+export async function signInWithGoogle() {
+  const result = await signInWithPopup(auth, googleProvider)
+  return result.user
+}
 
 export async function registerUser(email, password) {
   const result = await createUserWithEmailAndPassword(auth, email, password)

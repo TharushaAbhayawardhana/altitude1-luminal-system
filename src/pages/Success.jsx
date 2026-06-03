@@ -70,7 +70,7 @@ export default function Success() {
             <p className="text-text-secondary mb-8">We could not find your order details.</p>
             <Link
               to="/contact"
-              className="inline-flex gradient-bg text-white px-8 py-3.5 rounded-xl font-semibold text-sm glow hover:opacity-90 transition-opacity"
+              className="inline-flex gradient-bg text-white px-8 py-3.5 rounded-xl font-semibold text-sm glow hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] transition-all duration-300"
             >
               Contact Support
             </Link>
@@ -101,7 +101,7 @@ export default function Success() {
             transition={{ delay: 0.2 }}
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Payment Successful!</h1>
-            <p className="text-text-secondary mb-8">Thank you for choosing Luminal Systems.</p>
+            <p className="text-text-secondary mb-10">Thank you for choosing Luminal Systems.</p>
           </motion.div>
 
           <motion.div
@@ -130,7 +130,7 @@ export default function Success() {
             </GlassCard>
 
             {accountCreated && (
-              <GlassCard className="flex items-center gap-3 !p-4">
+              <GlassCard className="flex items-center gap-3 !p-5">
                 <UserPlus className="h-5 w-5 text-success shrink-0" />
                 <p className="text-sm text-text-secondary">
                   Your account has been created. Check your email for login credentials.
@@ -138,16 +138,16 @@ export default function Success() {
               </GlassCard>
             )}
 
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/"
-                className="gradient-bg text-white px-8 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 glow hover:opacity-90 transition-opacity"
+                className="group gradient-bg text-white px-8 py-4 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 glow-lg hover:shadow-[0_0_50px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-105"
               >
                 <Sparkles className="h-4 w-4" /> Go to Home
               </Link>
               <Link
                 to="/contact"
-                className="glass text-white px-8 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 hover:bg-surface-hover transition-all"
+                className="glass text-white px-8 py-4 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/15 transition-all duration-300"
               >
                 Need Help? <ArrowRight className="h-4 w-4" />
               </Link>

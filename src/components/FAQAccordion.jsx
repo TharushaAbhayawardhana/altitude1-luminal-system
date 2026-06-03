@@ -23,14 +23,14 @@ export default function FAQAccordion() {
   return (
     <div className="space-y-3">
       {faqs.map((faq, index) => (
-        <div key={index} className="glass rounded-xl overflow-hidden">
+        <div key={index} className="glass rounded-2xl overflow-hidden hover:border-white/15 transition-all duration-300">
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full flex items-center justify-between p-4 text-left text-sm font-medium text-white hover:bg-white/5 transition-colors"
+            className="w-full flex items-center justify-between p-5 text-left text-sm font-medium text-white hover:bg-white/5 transition-colors"
           >
             {faq.q}
             <ChevronDown
-              className={`h-4 w-4 text-text-secondary transition-transform duration-200 ${
+              className={`h-4 w-4 text-text-secondary transition-transform duration-300 shrink-0 ${
                 openIndex === index ? 'rotate-180' : ''
               }`}
             />
@@ -43,7 +43,7 @@ export default function FAQAccordion() {
                 exit={{ height: 0, opacity: 0 }}
                 className="overflow-hidden"
               >
-                <p className="px-4 pb-4 text-sm text-text-secondary">{faq.a}</p>
+                <p className="px-5 pb-5 text-sm text-text-secondary leading-relaxed">{faq.a}</p>
               </motion.div>
             )}
           </AnimatePresence>

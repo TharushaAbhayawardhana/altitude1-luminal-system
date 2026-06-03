@@ -11,16 +11,16 @@ export default function StepCard({ step, title, description, index, isLast }) {
       className="relative flex gap-6"
     >
       <div className="flex flex-col items-center">
-        <div className="h-10 w-10 rounded-full gradient-bg flex items-center justify-center shrink-0">
+        <div className="h-10 w-10 rounded-full gradient-bg flex items-center justify-center shrink-0 shadow-lg">
           <CheckCircle className="h-5 w-5 text-white" />
         </div>
-        {!isLast && <div className="w-0.5 flex-1 bg-gradient-to-b from-primary to-accent mt-2" />}
+        {!isLast && <div className="w-0.5 flex-1 bg-gradient-to-b from-primary to-accent mt-2 opacity-50" />}
       </div>
-      <div className="pb-8">
+      <div className="pb-10">
         <h3 className="text-lg font-bold text-white mb-1">
           Step {step}: {title}
         </h3>
-        <p className="text-text-secondary text-sm">{description}</p>
+        <p className="text-text-secondary text-sm leading-relaxed">{description}</p>
       </div>
     </motion.div>
   )

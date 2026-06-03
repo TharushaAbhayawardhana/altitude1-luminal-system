@@ -28,16 +28,18 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass shadow-lg'
+          ? 'glass-strong shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
           : 'bg-transparent'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <Sparkles className="h-6 w-6 text-accent group-hover:rotate-12 transition-transform" />
+        <div className="flex h-16 md:h-20 items-center justify-between">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="h-8 w-8 rounded-lg gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Sparkles className="h-4 w-4 text-white" />
+            </div>
             <span className="text-xl font-bold gradient-text">Luminal</span>
           </Link>
 
@@ -59,7 +61,7 @@ export default function Navbar() {
             ))}
             <Link
               to="/pricing"
-              className="ml-4 px-5 py-2 rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-semibold transition-all duration-200 glow"
+              className="ml-4 px-6 py-2.5 rounded-xl gradient-bg text-white text-sm font-semibold transition-all duration-300 glow hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105"
             >
               Get Started
             </Link>
@@ -67,10 +69,10 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-text-secondary hover:text-white hover:bg-white/10 transition-all"
+            className="md:hidden p-2.5 rounded-xl text-text-secondary hover:text-white hover:bg-white/10 transition-all"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -81,15 +83,15 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border overflow-hidden"
+            className="md:hidden glass-strong border-t border-border overflow-hidden"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-4 py-6 space-y-2">
               {links.map(({ to, label }) => (
                 <NavLink
                   key={to}
                   to={to}
                   className={({ isActive }) =>
-                    `block px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                    `block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       isActive
                         ? 'text-white bg-white/10'
                         : 'text-text-secondary hover:text-white hover:bg-white/5'
@@ -101,7 +103,7 @@ export default function Navbar() {
               ))}
               <Link
                 to="/pricing"
-                className="block px-4 py-3 rounded-xl bg-primary text-white text-sm font-semibold text-center mt-4 glow"
+                className="block px-4 py-3.5 rounded-xl gradient-bg text-white text-sm font-semibold text-center mt-6 glow"
               >
                 Get Started
               </Link>

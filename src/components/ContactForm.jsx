@@ -51,7 +51,7 @@ export default function ContactForm() {
   ]
 
   return (
-    <form onSubmit={handleSubmit} className="glass rounded-2xl p-6 sm:p-8 space-y-5">
+    <form onSubmit={handleSubmit} className="glass rounded-2xl p-6 md:p-8 space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {fields.map(({ name, label, type }) => (
           <div key={name} className={name === 'subject' ? 'sm:col-span-2' : ''}>
@@ -64,12 +64,12 @@ export default function ContactForm() {
               type={type}
               value={form[name]}
               onChange={handleChange}
-              className={`w-full bg-white/5 border rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${
+              className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-sm text-white placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${
                 errors[name] ? 'border-error' : 'border-border'
               }`}
               placeholder={`Your ${label.toLowerCase()}`}
             />
-            {errors[name] && <p className="text-xs text-error mt-1">{errors[name]}</p>}
+            {errors[name] && <p className="text-xs text-error mt-1.5">{errors[name]}</p>}
           </div>
         ))}
       </div>
@@ -83,17 +83,17 @@ export default function ContactForm() {
           rows={5}
           value={form.message}
           onChange={handleChange}
-          className={`w-full bg-white/5 border rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none ${
+          className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-sm text-white placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none ${
             errors.message ? 'border-error' : 'border-border'
           }`}
           placeholder="Your message"
         />
-        {errors.message && <p className="text-xs text-error mt-1">{errors.message}</p>}
+        {errors.message && <p className="text-xs text-error mt-1.5">{errors.message}</p>}
       </div>
       <button
         type="submit"
         disabled={submitting}
-        className="w-full gradient-bg text-white py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="w-full gradient-bg text-white py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 glow hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] transition-all duration-300 disabled:opacity-50"
       >
         {submitting ? (
           <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>

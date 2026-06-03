@@ -14,6 +14,7 @@ $routes = [
     '/api/payhere-hash'     => __DIR__ . '/api/payhere-hash.php',
     '/api/send-welcome'     => __DIR__ . '/api/send-welcome.php',
     '/api/complete-order'   => __DIR__ . '/api/complete-order.php',
+    '/api/users'            => __DIR__ . '/api/users.php',
 ];
 
 $path = parse_url($requestUri, PHP_URL_PATH);

@@ -62,6 +62,7 @@ $email = trim($data['email'] ?? '');
 $phone = trim($data['phone'] ?? '');
 $address = trim($data['address'] ?? '');
 $city = trim($data['city'] ?? '');
+$userId = isset($data['userId']) ? (int)$data['userId'] : null;
 
 $errors = [];
 if (empty($orderId)) $errors[] = 'Order ID is required';
@@ -76,12 +77,12 @@ if (!empty($errors)) {
 
 try {
     $stmt = $pdo->prepare(
-        'INSERT INTO orders (order_id, plan_id, plan_name, amount, currency, first_name, last_name, email, phone, address, city, status, created_at) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())'
+        'INSERT INTO orders (order_id, plan_id, plan_name, amount, currency, first_name, last_name, email, phone, address, city, user_id, status, created_at) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())'
     );
 
     $status = 'pending';
-    $stmt->execute([$orderId, $planId, $planName, $amount, $currency, $firstName, $lastName, $email, $phone, $address, $city, $status]);
+    $stmt->execute([$orderId, $planId, $planName, $amount, $currency, $firstName, $lastName, $email, $phone, $address, $city, $userId, $status]);
 
     echo json_encode([
         'success' => true,
